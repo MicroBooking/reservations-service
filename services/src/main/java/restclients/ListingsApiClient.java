@@ -12,7 +12,7 @@ public class ListingsApiClient {
         try {
             ListingsApi listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(new URL("http://listings-service:8080/v1/listings/reserveListing/" + listingId.toString()))
+                    .baseUrl(new URL("http://listings-service:8080/"))
                     .build(ListingsApi.class);
 
             listingsApi.reserveListing(listingId);

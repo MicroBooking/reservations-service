@@ -1,6 +1,7 @@
 package classes;
 
 import java.util.Date;
+import javax.json.bind.annotation.JsonbDateFormat;
 
 public class Reservation {
     private Integer reservationId;
