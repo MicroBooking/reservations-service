@@ -32,4 +32,4 @@ jobs:
 
       - name: Push Docker images
         run: |
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/reservations:${{ steps.vars.outputs.sha_short }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/reservations-service:${{ steps.vars.outputs.sha_short }}
