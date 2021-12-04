@@ -30,7 +30,7 @@ jobs:
       - name: Build the image
         run: |
           docker build -f Dockerfile -t ${{ secrets.DOCKERHUB_USERNAME }}/reservations-service:${{ steps.vars.outputs.sha_short }} .
-          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/reservations-service latest
+          docker tag ${{ secrets.DOCKERHUB_USERNAME }}/reservations-service:${{ steps.vars.outputs.sha_short }} latest
 
       - name: Push Docker images
         run: |
