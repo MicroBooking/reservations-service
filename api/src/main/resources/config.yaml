@@ -9,9 +9,10 @@ kumuluzee:
       port: 8080
   datasources:
     - jndi-name: jdbc/ReservationsDS
-      connection-url: jdbc:postgresql://pg-reservations:5432/reservations
-      username: dbuser
-      password: postgres
+      connection-url: ${PG_HOST}
+      username: ${PG_USER}
+      password: ${PG_PASSWORD}
   config:
     consul:
       agent: http://consul:8500
+

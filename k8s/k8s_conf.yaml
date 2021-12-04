@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reservations-service
+  labels:
+    component: reservations-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: reservations-service
+  template:
+    metadata:
+      labels:
+        component: reservations-service
+    spec:
+      containers:
+        - name: reservations-service
+          image: bogdanp3trovic/reservations-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: PG_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: pg_host
+                  name: booking-secret
+            - name: PG_USER
+              valueFrom:
+                secretKeyRef:
+                  key: pg_user
+                  name: booking-secret
+            - name: PG_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: pg_password
+                  name: booking-secret
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: reservations-service
+spec:
+  ports:
+    - port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    name: reservations-service
+  type: ClusterIP
+
+
