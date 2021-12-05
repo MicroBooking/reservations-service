@@ -41,18 +41,6 @@ spec:
                 secretKeyRef:
                   key: consul_host
                   name: booking-secret
-          livenessProbe:
-            httpGet:
-              path: /health/live
-              port: server
-            initialDelaySeconds: 20
-            periodSeconds: 3
-          readinessProbe:
-            httpGet:
-              path: /health/ready
-              port: server
-            initialDelaySeconds: 20
-            periodSeconds: 3
 ---
 
 apiVersion: v1
