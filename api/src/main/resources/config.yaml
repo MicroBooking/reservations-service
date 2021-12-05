@@ -20,6 +20,6 @@ kumuluzee:
   health:
     checks:
       data-source-health-check:
-        type: liveness
+        type: readiness
         jndi-name: jdbc/ReservationsDS
 
