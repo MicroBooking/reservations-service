@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+@ApplicationScoped
 public class ListingsApiClient {
 
     @Inject
