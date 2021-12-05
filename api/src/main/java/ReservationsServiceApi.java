@@ -37,7 +37,7 @@ public class ReservationsServiceApi {
         } else {
             reservation = reservationsBean.createReservation(reservation);
         }
-
+        
         listingsApiClient.reserveListing(reservation.getListingId());
         return Response.status(Response.Status.OK).entity(reservation).build();
     }

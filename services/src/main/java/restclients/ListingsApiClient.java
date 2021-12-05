@@ -9,6 +9,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 @ApplicationScoped
 public class ListingsApiClient {
@@ -29,5 +30,15 @@ public class ListingsApiClient {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List <Listing> getListings() throws MalformedURLException {
+        ListingsApi listingsApi = RestClientBuilder
+                .newBuilder()
+                .baseUrl(new URL(restProperties.getListingsServiceUrl()))
+                .build(ListingsApi.class);
+
+
+        return listingsApi.getListings();
     }
 }

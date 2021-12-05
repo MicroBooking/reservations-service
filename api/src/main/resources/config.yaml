@@ -17,4 +17,9 @@ kumuluzee:
   config:
     consul:
       agent: ${CONSUL_HOST}
+  health:
+    checks:
+      data-source-health-check:
+        type: liveness
+        jndi-name: jdbc/ReservationsDS
 
