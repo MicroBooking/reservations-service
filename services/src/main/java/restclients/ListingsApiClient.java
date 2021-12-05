@@ -5,6 +5,7 @@ import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import restclients.interfaces.ListingsApi;
 import restclients.models.Listing;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.net.MalformedURLException;
 import java.net.URL;

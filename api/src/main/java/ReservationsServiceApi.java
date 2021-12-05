@@ -19,6 +19,9 @@ public class ReservationsServiceApi {
     @Inject
     private ReservationsBean reservationsBean;
 
+    @Inject
+    private ListingsApiClient listingsApiClient;
+
     @GET
     public Response getAllReservations() {
         List<Reservation> reservation = reservationsBean.getReservations();
@@ -34,8 +37,7 @@ public class ReservationsServiceApi {
         } else {
             reservation = reservationsBean.createReservation(reservation);
         }
-
-        ListingsApiClient listingsApiClient = new ListingsApiClient();
+        
         listingsApiClient.reserveListing(reservation.getListingId());
         return Response.status(Response.Status.OK).entity(reservation).build();
     }
