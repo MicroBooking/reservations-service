@@ -35,10 +35,12 @@ public class RestProperties {
     }
 
     public String getListingsServiceUrl() {
-        return listingsServiceUrl;
+        return listingsServiceUrl.replace("\"", "");
     }
 
-    public void setListingsServiceUrl(String listingServiceUrl) {
+
+        public void setListingsServiceUrl(String listingServiceUrl) {
+
         this.listingsServiceUrl = listingServiceUrl;
     }
 }
