@@ -44,7 +44,13 @@ spec:
           livenessProbe:
             httpGet:
               path: /health/live
-              port: server
+              port: containerPort
+            initialDelaySeconds: 20
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: containerPort
             initialDelaySeconds: 20
             periodSeconds: 3
 ---
