@@ -1,0 +1,26 @@
+query allReservations {
+    allReservations(pagination: {offset: 0, limit: 10},
+                                                sort: {fields: [{field: "title", order:ASC}]}) {
+        result {
+            reservationId
+            reserverId
+            startDate
+            endDate
+        }
+
+        pagination {
+            offset
+            limit
+            total
+        }
+    }
+}
+
+query getReservation {
+    reservation(id:1){
+        reservationId
+        ownerId
+        reserverId
+        listingId
+    }
+}

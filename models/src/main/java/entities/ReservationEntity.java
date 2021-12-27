@@ -9,7 +9,9 @@ import java.util.Date;
 @Table(name="reservation")
 @NamedQueries(value= {
         @NamedQuery(name="ReservationEntity.getAll",
-        query = "SELECT reservation FROM ReservationEntity reservation")
+                query = "SELECT reservation FROM ReservationEntity reservation"),
+        @NamedQuery(name="ReservationEntity.getById",
+                query = "SELECT reservation FROM ReservationEntity reservation WHERE reservation.id = :id")
 })
 public class ReservationEntity {
     @Id
