@@ -24,3 +24,17 @@ query getReservation {
         listingId
     }
 }
+
+mutation addReservation {
+    addReservation(reservation: {ownerId: 2, reserverId: 3, startDate: "2012-03-19T07:22Z", endDate: "2012-03-19T07:22Z", listingId: 1}) {
+        reservationId
+        startDate
+        endDate
+    }
+}
+
+mutation deleteReservation {
+    deleteReservation(id: 1) {
+        deleted
+    }
+}

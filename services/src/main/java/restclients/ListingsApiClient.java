@@ -23,6 +23,7 @@ public class ListingsApiClient {
                     .newBuilder()
                     .baseUrl(new URL(restProperties.getListingsServiceUrl()))
                     .build(ListingsApi.class);
+            System.out.println(restProperties.getListingsServiceUrl());
 
             listingsApi.reserveListing(listingId);
 
