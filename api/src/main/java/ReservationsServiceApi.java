@@ -29,6 +29,13 @@ public class ReservationsServiceApi {
 
     }
 
+    @GET
+    @Path("/{reservationId}")
+    public Response getListingById(@PathParam("reservationId") Integer reservationId) {
+        Reservation reservation = reservationsBean.getReservationById(reservationId);
+        return Response.status(Response.Status.OK).entity(reservation).build();
+    }
+
     @POST
     public Response createReservation(Reservation reservation) {
         if(reservation.getOwnerId() == null || reservation.getReserverId() == null || reservation.getStartDate() == null
