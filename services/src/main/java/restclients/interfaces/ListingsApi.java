@@ -13,5 +13,5 @@ public interface ListingsApi {
 
     @POST
     @Path("/reserveListing/{listingId}")
-    Listing reserveListing(@PathParam("listingId") Integer listingId);
+    Listing reserveListing(@PathParam("listingId") Integer listingId, Integer reservationId);
 }

@@ -31,7 +31,7 @@ public class ReservationsServiceApi {
 
     @GET
     @Path("/{reservationId}")
-    public Response getListingById(@PathParam("reservationId") Integer reservationId) {
+    public Response getReservationById(@PathParam("reservationId") Integer reservationId) {
         Reservation reservation = reservationsBean.getReservationById(reservationId);
         return Response.status(Response.Status.OK).entity(reservation).build();
     }
@@ -45,7 +45,7 @@ public class ReservationsServiceApi {
             reservation = reservationsBean.createReservation(reservation);
         }
         
-        listingsApiClient.reserveListing(reservation.getListingId());
+        listingsApiClient.reserveListing(reservation.getListingId(), reservation.getReservationId());
         return Response.status(Response.Status.OK).entity(reservation).build();
     }
 

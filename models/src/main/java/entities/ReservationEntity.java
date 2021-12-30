@@ -11,7 +11,9 @@ import java.util.Date;
         @NamedQuery(name="ReservationEntity.getAll",
                 query = "SELECT reservation FROM ReservationEntity reservation"),
         @NamedQuery(name="ReservationEntity.getById",
-                query = "SELECT reservation FROM ReservationEntity reservation WHERE reservation.id = :id")
+                query = "SELECT reservation FROM ReservationEntity reservation WHERE reservation.id = :id"),
+        @NamedQuery(name="ReservationEntity.getByListingId",
+                query = "SELECT reservation FROM ReservationEntity reservation WHERE reservation.listingId = :id")
 })
 public class ReservationEntity {
     @Id
