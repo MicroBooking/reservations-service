@@ -31,6 +31,7 @@
         <kumuluzee-logs.version>1.4.5</kumuluzee-logs.version>
         <kumuluzee-openapi-mp.version>1.4.0</kumuluzee-openapi-mp.version>
 
+        <kumuluzee-config-mp.version>1.4.1</kumuluzee-config-mp.version>
         <postgresql.version>42.3.0</postgresql.version>
     </properties>
 
@@ -94,9 +95,19 @@
                 <version>${kumuluzee-openapi-mp.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.kumuluz.ee.config</groupId>
+                <artifactId>kumuluzee-config-mp</artifactId>
+                <version>${kumuluzee-config-mp.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.kumuluz.ee.openapi</groupId>
                 <artifactId>kumuluzee-openapi-mp-ui</artifactId>
                 <version>${kumuluzee-openapi-mp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kumuluz.ee.config</groupId>
+                <artifactId>kumuluzee-config-mp</artifactId>
+                <version>${kumuluzee-config-mp.version}</version>
             </dependency>
             <dependency>
                 <groupId>si.fri.rso.reservations</groupId>

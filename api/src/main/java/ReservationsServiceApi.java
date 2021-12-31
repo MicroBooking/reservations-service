@@ -77,8 +77,4 @@ public class ReservationsServiceApi {
         listingsApiClient.reserveListing(reservation.getListingId(), reservation.getReservationId());
         return Response.status(Response.Status.OK).entity(reservation).build();
     }
-
-
-
-
 }
