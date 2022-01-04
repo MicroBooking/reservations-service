@@ -1,5 +1,6 @@
 package restclients;
 
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import config.RestProperties;
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import restclients.interfaces.ListingsApi;
@@ -14,23 +15,22 @@ import java.util.List;
 @ApplicationScoped
 public class ListingsApiClient {
 
+    @DiscoverService(value = "listings-service", environment = "test", version = "1.0.0")
+    private URL listingsServiceUrl;
+
     @Inject
     private RestProperties restProperties;
 
     public Listing reserveListing(Integer listingId, Integer reservationId){
-        try {
             ListingsApi listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(new URL("listings-service/v1/listings"))
+                    .baseUrl(listingsServiceUrl)
                     .build(ListingsApi.class);
             System.out.println(restProperties.getListingsServiceUrl());
 
             listingsApi.reserveListing(listingId, reservationId);
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return null;
+            return null;
     }
 
     public List <Listing> getListings() throws MalformedURLException {
