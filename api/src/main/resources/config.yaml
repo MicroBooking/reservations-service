@@ -17,6 +17,9 @@ kumuluzee:
   cors-filter:
     servlet:
       allow-origin: "*"
+  discovery:
+    consul:
+      agent: http://10.244.1.32:8500
   logs:
     config-file: '<?xml version="1.0" encoding="UTF-8"?>
                           <Configuration name="comments">

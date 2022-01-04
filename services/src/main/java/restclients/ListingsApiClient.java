@@ -21,7 +21,7 @@ public class ListingsApiClient {
         try {
             ListingsApi listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(new URL(restProperties.getListingsServiceUrl()))
+                    .baseUrl(new URL("listings-service/v1/listings"))
                     .build(ListingsApi.class);
             System.out.println(restProperties.getListingsServiceUrl());
 
