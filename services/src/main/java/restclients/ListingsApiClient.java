@@ -15,26 +15,22 @@ import java.util.List;
 @ApplicationScoped
 public class ListingsApiClient {
 
-    @DiscoverService(value = "listings-service", environment = "test", version = "1.0.0")
+    @DiscoverService(value = "dev-listings-service", environment = "test", version = "1.0.0")
     private URL listingsServiceUrl;
 
     @Inject
     private RestProperties restProperties;
 
-    public Listing reserveListing(Integer listingId, Integer reservationId) {
-        try {
+    public Listing reserveListing(Integer listingId, Integer reservationId){
             ListingsApi listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(new URL(restProperties.getListingsServiceUrl()))
+                    .baseUrl(listingsServiceUrl)
                     .build(ListingsApi.class);
+            System.out.println(restProperties.getListingsServiceUrl());
 
             listingsApi.reserveListing(listingId, reservationId);
 
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-        return null;
+            return null;
     }
 
     public List <Listing> getListings() throws MalformedURLException {
