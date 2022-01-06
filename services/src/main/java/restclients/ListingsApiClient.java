@@ -21,14 +21,18 @@ public class ListingsApiClient {
     @Inject
     private RestProperties restProperties;
 
-    public Listing reserveListing(Integer listingId, Integer reservationId){
+    public Listing reserveListing(Integer listingId, Integer reservationId) throws MalformedURLException {
+        try {
             ListingsApi listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(listingsServiceUrl)
+                    .baseUrl(new URL(restProperties.getListingsServiceUrl()))
                     .build(ListingsApi.class);
-            System.out.println(restProperties.getListingsServiceUrl());
 
             listingsApi.reserveListing(listingId, reservationId);
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
 
             return null;
     }
