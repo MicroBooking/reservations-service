@@ -22,11 +22,16 @@ public class ListingsApiClient {
     private RestProperties restProperties;
 
     public Listing reserveListing(Integer listingId, Integer reservationId){
-            ListingsApi listingsApi = RestClientBuilder
+        ListingsApi listingsApi = null;
+        try {
+            listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(listingsServiceUrl)
+                    .baseUrl(new URL(restProperties.getListingsServiceUrl()))
                     .build(ListingsApi.class);
-            System.out.println(restProperties.getListingsServiceUrl());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(restProperties.getListingsServiceUrl());
 
             listingsApi.reserveListing(listingId, reservationId);
 
