@@ -1,4 +1,4 @@
-package interceptors;
+//package interceptors;
 
 import com.kumuluz.ee.common.config.EeConfig;
 import com.kumuluz.ee.common.runtime.EeRuntime;
@@ -17,21 +17,21 @@ import java.util.UUID;
 //@Log
 //@Interceptor
 //@Priority(Interceptor.Priority.PLATFORM_BEFORE)
-public class LogContextInterceptor {
-
-
-    @AroundInvoke
-    public Object logMethodEntryAndExit(InvocationContext context) throws Exception {
-
-        HashMap settings = new HashMap();
-        settings.put("applicationVersion", EeConfig.getInstance().getVersion());
-        settings.put("uniqueInstanceId", EeRuntime.getInstance().getInstanceId());
-
-        settings.put("uniqueRequestId", UUID.randomUUID().toString());
-
-        try (final CloseableThreadContext.Instance ctc = CloseableThreadContext.putAll(settings)) {
-            Object result = context.proceed();
-            return result;
-        }
-    }
-}
+//public class LogContextInterceptor {
+//
+//
+//    @AroundInvoke
+//    public Object logMethodEntryAndExit(InvocationContext context) throws Exception {
+//
+//        HashMap settings = new HashMap();
+//        settings.put("applicationVersion", EeConfig.getInstance().getVersion());
+//        settings.put("uniqueInstanceId", EeRuntime.getInstance().getInstanceId());
+//
+//        settings.put("uniqueRequestId", UUID.randomUUID().toString());
+//
+//        try (final CloseableThreadContext.Instance ctc = CloseableThreadContext.putAll(settings)) {
+//            Object result = context.proceed();
+//            return result;
+//        }
+//    }
+//}
