@@ -23,6 +23,7 @@ public class ListingsApiClient {
     private RestProperties restProperties;
 
     public Listing reserveListing(Integer listingId, Integer reservationId){
+        System.out.println(listingsServiceUrl);
         ListingsApi listingsApi = null;
         try {
             listingsApi = RestClientBuilder
@@ -32,7 +33,6 @@ public class ListingsApiClient {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println(restProperties.getListingsServiceUrl());
 
             listingsApi.reserveListing(listingId, reservationId);
 
