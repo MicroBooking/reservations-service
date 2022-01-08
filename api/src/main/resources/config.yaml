@@ -2,8 +2,7 @@ kumuluzee:
   name: reservations-service
   env:
     name: dev
-    address: 10.245.44.197
-  address: 10.245.44.197
+  container-url: http://10.245.44.197
   version: 1.0.0
   server:
     base-url: http://10.245.44.197
