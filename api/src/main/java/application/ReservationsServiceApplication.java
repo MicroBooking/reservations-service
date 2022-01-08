@@ -14,7 +14,7 @@ import javax.ws.rs.core.Application;
         contact = @Contact(email = "bp3201@student.uni-lj.si"),
         license = @License(name = "dev"), description = "API for managing reservations."),
         servers = @Server(url = "http://206.189.249.190/reservations-service/"))
-@RegisterService(value = "reservations-service", ttl = 20, pingInterval = 15, environment = "test", version = "1.0.0", singleton = false)
+@RegisterService
 @ApplicationPath("v1")
 public class ReservationsServiceApplication extends Application {
 }
