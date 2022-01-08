@@ -32,7 +32,20 @@ public class ListingsApiClient {
                     .baseUrl(new URL(listingsServiceUrl.toString() + "/v1/listings"))
                     .build(ListingsApi.class);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+            System.out.println(listingsServiceUrl);
+
         }
 
             listingsApi.reserveListing(listingId, reservationId);
