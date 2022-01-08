@@ -15,6 +15,7 @@ import java.util.List;
 @ApplicationScoped
 public class ListingsApiClient {
 
+    @Inject
     @DiscoverService(value = "listings-service", environment = "test", version = "1.0.0")
     private URL listingsServiceUrl;
 
@@ -26,9 +27,9 @@ public class ListingsApiClient {
         try {
             listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(new URL(restProperties.getListingsServiceUrl()))
+                    .baseUrl(listingsServiceUrl)
                     .build(ListingsApi.class);
-        } catch (MalformedURLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         System.out.println(restProperties.getListingsServiceUrl());
