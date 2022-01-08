@@ -27,7 +27,7 @@ public class ListingsApiClient {
         try {
             listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(listingsServiceUrl)
+                    .baseUrl(new URL(listingsServiceUrl.toString() + "8080" + "/v1/listings"))
                     .build(ListingsApi.class);
         } catch (Exception e) {
             e.printStackTrace();
