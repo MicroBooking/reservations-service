@@ -18,6 +18,7 @@ kumuluzee:
     servlet:
       allow-origin: "*"
   discovery:
+    cluster: rso-cluster
     consul:
       agent: http://10.244.1.32:8500
   #logs:
