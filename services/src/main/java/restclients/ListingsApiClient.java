@@ -1,6 +1,7 @@
 package restclients;
 
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
+import com.kumuluz.ee.discovery.enums.AccessType;
 import config.RestProperties;
 import org.eclipse.microprofile.rest.client.RestClientBuilder;
 import restclients.interfaces.ListingsApi;
@@ -16,7 +17,7 @@ import java.util.List;
 public class ListingsApiClient {
 
     @Inject
-    @DiscoverService(value = "listings-service", environment = "dev", version = "1.0.0")
+    @DiscoverService(value = "listings-service", environment = "dev", version = "1.0.0", accessType = AccessType.DIRECT)
     private URL listingsServiceUrl;
 
     @Inject
