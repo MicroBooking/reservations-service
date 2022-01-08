@@ -17,7 +17,7 @@ import java.util.List;
 public class ListingsApiClient {
 
     @Inject
-    @DiscoverService(value = "dev-listings-service")
+    @DiscoverService(value = "listings-service")
     private URL listingsServiceUrl;
 
     @Inject
