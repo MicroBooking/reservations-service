@@ -5,6 +5,7 @@ import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.headers.Header;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import restclients.ListingsApiClient;
@@ -65,7 +66,8 @@ public class ReservationsServiceApi {
             @APIResponse(responseCode = "400", description = "Validation error. Check request parameters")
     })
     @POST
-    public Response createReservation(Reservation reservation) {
+    public Response createReservation(@RequestBody(description="DTO object to represent Reservation", required = true, content = @Content(schema = @Schema(implementation = Reservation.class)))
+            Reservation reservation) {
         if(reservation.getOwnerId() == null || reservation.getReserverId() == null || reservation.getStartDate() == null
                 || reservation.getEndDate() == null || reservation.getListingId() == null) {
             return Response.status(Response.Status.BAD_REQUEST).build();
