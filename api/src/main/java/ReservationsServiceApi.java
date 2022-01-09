@@ -35,9 +35,6 @@ public class ReservationsServiceApi {
     }
 
     @Inject
-    private EventConsumerStreaming eventConsumerStreaming;
-
-    @Inject
     private ReservationsBean reservationsBean;
 
     @Inject
