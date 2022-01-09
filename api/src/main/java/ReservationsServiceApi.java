@@ -12,6 +12,7 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import restclients.ListingsApiClient;
 import restclients.interfaces.ListingsApi;
+import streaming.EventConsumerStreaming;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -27,6 +28,14 @@ public class ReservationsServiceApi {
     private Logger log = Logger.getLogger(ReservationsServiceApi.class.getName());
 
     private static final String TOPIC_NAME = "h2ihozli-image-upload";
+
+    @StreamListener(topics = {TOPIC_NAME}, config = "consumer")
+    public void onImageUploadMessage(ConsumerRecord<String, String> record) {
+        log.info(record.key().toString());
+    }
+
+    @Inject
+    private EventConsumerStreaming eventConsumerStreaming;
 
     @Inject
     private ReservationsBean reservationsBean;
