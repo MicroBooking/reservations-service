@@ -29,23 +29,10 @@ public class ListingsApiClient {
         try {
             listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(new URL(listingsServiceUrl.toString()))
+                    .baseUrl(new URL(restProperties.getListingsServiceUrl()))
                     .build(ListingsApi.class);
         } catch (Exception e) {
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-            System.out.println(listingsServiceUrl);
-
+            e.printStackTrace();
         }
 
             listingsApi.reserveListing(listingId, reservationId);
