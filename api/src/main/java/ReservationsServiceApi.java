@@ -34,11 +34,7 @@ public class ReservationsServiceApi {
     @Inject
     private ListingsApiClient listingsApiClient;
 
-    @StreamListener(topics = {TOPIC_NAME})
-    public void onImageUploadMessage(ConsumerRecord<String, String> record) {
-        System.out.println(record.key().toString());
-        log.info(record.key().toString());
-    }
+
 
     @Operation(description = "Get all reservations.", summary = "Get all reservations.")
     @APIResponses({

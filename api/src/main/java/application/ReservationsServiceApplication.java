@@ -1,6 +1,8 @@
 package application;
 
 import com.kumuluz.ee.discovery.annotations.RegisterService;
+import com.kumuluz.ee.streaming.common.annotations.StreamListener;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.eclipse.microprofile.openapi.annotations.OpenAPIDefinition;
 import org.eclipse.microprofile.openapi.annotations.info.Contact;
 import org.eclipse.microprofile.openapi.annotations.info.Info;
@@ -9,6 +11,7 @@ import org.eclipse.microprofile.openapi.annotations.servers.Server;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
+import java.util.logging.Logger;
 
 @OpenAPIDefinition(info = @Info(title = "Listings API", version = "v1",
         contact = @Contact(email = "bp3201@student.uni-lj.si"),
@@ -17,4 +20,15 @@ import javax.ws.rs.core.Application;
 @RegisterService
 @ApplicationPath("v1")
 public class ReservationsServiceApplication extends Application {
+    private Logger log = Logger.getLogger(ReservationsServiceApplication.class.getName());
+
+    private static final String TOPIC_NAME = "h2ihozli-image-upload";
+
+
+    @StreamListener(topics = {TOPIC_NAME})
+    public void onMessage(ConsumerRecord<String, String> record) {
+        log.info("called");
+        System.out.println(record.key().toString());
+        log.info(record.key().toString());
+    }
 }
