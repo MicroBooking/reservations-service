@@ -14,7 +14,7 @@ public class EventConsumerStreaming {
 
     private static final String TOPIC_NAME = "h2ihozli-image-upload";
 
-    @StreamListener(topics = {TOPIC_NAME})
+    @StreamListener(topics = {TOPIC_NAME}, config = "consumer")
     public void onImageUploadMessage(ConsumerRecord<String, String> record) {
         log.info(record.key().toString());
     }
