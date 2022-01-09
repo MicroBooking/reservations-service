@@ -25,7 +25,6 @@ public class ReservationsServiceApplication extends Application {
 
     private static final String TOPIC_NAME = "h2ihozli-image-upload";
 
-    @Inject
     @StreamListener(topics = {TOPIC_NAME})
     public void onMessage(ConsumerRecord<String, String> record) {
         log.info("called");

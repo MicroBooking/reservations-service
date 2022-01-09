@@ -52,7 +52,7 @@ kumuluzee:
         jndi-name: jdbc/ReservationsDS
   streaming:
     kafka:
-      producer:
+      consumer:
         bootstrap-servers: sulky-01.srvs.cloudkafka.com:9094
         acks: all
         retries: 0
