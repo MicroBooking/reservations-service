@@ -18,6 +18,9 @@ kumuluzee:
   cors-filter:
     servlet:
       allow-origin: "*"
+  openapi:
+    servlet:
+      mapping: openapi/reservations
   discovery:
     cluster: rso-cluster
     consul:
