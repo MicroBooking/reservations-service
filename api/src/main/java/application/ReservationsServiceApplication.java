@@ -9,6 +9,7 @@ import org.eclipse.microprofile.openapi.annotations.info.Info;
 import org.eclipse.microprofile.openapi.annotations.info.License;
 import org.eclipse.microprofile.openapi.annotations.servers.Server;
 
+import javax.inject.Inject;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.logging.Logger;
@@ -24,7 +25,7 @@ public class ReservationsServiceApplication extends Application {
 
     private static final String TOPIC_NAME = "h2ihozli-image-upload";
 
-
+    @Inject
     @StreamListener(topics = {TOPIC_NAME})
     public void onMessage(ConsumerRecord<String, String> record) {
         log.info("called");
