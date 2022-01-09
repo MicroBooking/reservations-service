@@ -29,7 +29,7 @@ public class ListingsApiClient {
         try {
             listingsApi = RestClientBuilder
                     .newBuilder()
-                    .baseUrl(new URL(listingsServiceUrl.toString() + "/v1/listings"))
+                    .baseUrl(new URL(listingsServiceUrl.toString()))
                     .build(ListingsApi.class);
         } catch (Exception e) {
             System.out.println(listingsServiceUrl);
