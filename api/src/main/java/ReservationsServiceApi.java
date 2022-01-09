@@ -1,5 +1,7 @@
 import beans.ReservationsBean;
 import classes.Reservation;
+import com.kumuluz.ee.streaming.common.annotations.StreamListener;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.enums.SchemaType;
 import org.eclipse.microprofile.openapi.annotations.headers.Header;
@@ -24,11 +26,19 @@ import java.util.logging.Logger;
 public class ReservationsServiceApi {
     private Logger log = Logger.getLogger(ReservationsServiceApi.class.getName());
 
+    private static final String TOPIC_NAME = "h2ihozli-image-upload";
+
     @Inject
     private ReservationsBean reservationsBean;
 
     @Inject
     private ListingsApiClient listingsApiClient;
+
+    @StreamListener(topics = {TOPIC_NAME})
+    public void onImageUploadMessage(ConsumerRecord<String, String> record) {
+        System.out.println(record.key().toString());
+        log.info(record.key().toString());
+    }
 
     @Operation(description = "Get all reservations.", summary = "Get all reservations.")
     @APIResponses({
