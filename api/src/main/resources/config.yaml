@@ -61,6 +61,8 @@ kumuluzee:
         buffer-memory: 33554432
         key-serializer: org.apache.kafka.common.serialization.StringSerializer
         value-serializer: org.apache.kafka.common.serialization.StringSerializer
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
         security-protocol: SASL_SSL
         sasl-mechanism: SCRAM-SHA-256
         group-id: newer
