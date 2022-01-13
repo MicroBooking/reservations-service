@@ -42,6 +42,21 @@ spec:
                 secretKeyRef:
                   key: consul_host
                   name: booking-secret
+            - name: KAFKA_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: kafka_username
+                  name: booking-secret
+            - name: KAFKA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: kafka_password
+                  name: booking-secret
+            - name: CONNECTION_TEST_URL
+              valueFrom:
+                secretKeyRef:
+                  key: connection_test_url
+                  name: booking-secret
           livenessProbe:
             httpGet:
               path: /health/live
