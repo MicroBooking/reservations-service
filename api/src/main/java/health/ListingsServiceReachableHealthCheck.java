@@ -23,5 +23,5 @@ public class ListingsServiceReachableHealthCheck implements HealthCheck {
             return HealthCheckResponse.down(ListingsServiceReachableHealthCheck.class.getSimpleName());
         }
     }
-    
+
 }
