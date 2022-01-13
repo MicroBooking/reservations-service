@@ -18,12 +18,12 @@ public class ConnectionAvailable implements HealthCheck {
     @Inject
     private RestProperties restProperties;
 
-    private final String url = restProperties.getConnCheck();
     private static final Logger LOG = Logger.getLogger(ConnectionAvailable.class.getSimpleName());
 
     @Override
     public HealthCheckResponse call() {
         try {
+            String url = restProperties.getConnCheck();
             HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
             connection.setRequestMethod("HEAD");
 
