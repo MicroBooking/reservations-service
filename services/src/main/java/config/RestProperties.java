@@ -17,6 +17,9 @@ public class RestProperties {
     @ConfigValue(watch = true)
     private String listingsServiceUrl;
 
+    @ConfigValue(watch = true)
+    private String connCheck;
+
 
     public Boolean getMaintenanceMode() {
         return this.maintenanceMode;
@@ -41,5 +44,13 @@ public class RestProperties {
     public void setListingsServiceUrl(String listingServiceUrl) {
 
         this.listingsServiceUrl = listingServiceUrl;
+    }
+
+    public String getConnCheck() {
+        return connCheck;
+    }
+
+    public void setConnCheck(String connCheck) {
+        this.connCheck = connCheck;
     }
 }

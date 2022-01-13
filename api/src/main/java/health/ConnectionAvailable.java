@@ -1,10 +1,12 @@
 package health;
 
+import config.RestProperties;
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
 import org.eclipse.microprofile.health.Liveness;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.logging.Logger;
@@ -13,8 +15,10 @@ import java.util.logging.Logger;
 @ApplicationScoped
 public class ConnectionAvailable implements HealthCheck {
 
-    private static final String url = System.getenv("CONNECTION_TEST_URL");
+    @Inject
+    private RestProperties restProperties;
 
+    private final String url = restProperties.getConnCheck();
     private static final Logger LOG = Logger.getLogger(ConnectionAvailable.class.getSimpleName());
 
     @Override
