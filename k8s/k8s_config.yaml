@@ -57,17 +57,17 @@ spec:
                 secretKeyRef:
                   key: connection_test_url
                   name: booking-secret
-          livenessProbe:
-            httpGet:
-              path: /health/live
-              port: server
-            initialDelaySeconds: 120
-            periodSeconds: 3
+#          livenessProbe:
+#            httpGet:
+#              path: /health/live
+#              port: server
+#            initialDelaySeconds: 180
+#            periodSeconds: 3
           readinessProbe:
             httpGet:
               path: /health/ready
               port: server
-            initialDelaySeconds: 120
+            initialDelaySeconds: 180
             periodSeconds: 3
 ---
 
